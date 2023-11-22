@@ -1,0 +1,391 @@
+lab@lab:~$ mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 14
+Server version: 8.0.34-0ubuntu0.22.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++-----------------------+
+| Database              |
++-----------------------+
+| cuidardb              |
+| db_ClinicaVeterinaria |
+| db_Empresa            |
+| db_Pedidos            |
+| db_Univerdidade       |
+| db_clientes           |
+| db_clinica            |
+| db_empresa            |
+| db_filme              |
+| db_loja               |
+| db_marmitaria         |
+| db_univerdidade       |
+| db_universidade       |
+| db_veterinaria        |
+| information_schema    |
+| loja                  |
+| lojaa                 |
+| mysql                 |
+| performance_schema    |
+| phpmyadmin            |
+| sys                   |
+| teste                 |
++-----------------------+
+22 rows in set (0,00 sec)
+
+mysql> use loja;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++----------------+
+| Tables_in_loja |
++----------------+
+| clientes       |
+| itens_venda    |
+| produtos       |
+| vendas         |
++----------------+
+4 rows in set (0,01 sec)
+
+mysql> describe clientes;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| cliente_id | int          | NO   | PRI | NULL    | auto_increment |
+| nome       | varchar(255) | NO   |     | NULL    |                |
+| email      | varchar(255) | NO   | UNI | NULL    |                |
+| senha      | varchar(255) | NO   |     | NULL    |                |
+| endereco   | text         | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+5 rows in set (0,00 sec)
+
+mysql> desc itens_venda;
++------------+---------------+------+-----+---------+----------------+
+| Field      | Type          | Null | Key | Default | Extra          |
++------------+---------------+------+-----+---------+----------------+
+| item_id    | int           | NO   | PRI | NULL    | auto_increment |
+| venda_id   | int           | YES  | MUL | NULL    |                |
+| produto_id | int           | YES  | MUL | NULL    |                |
+| quantidade | int           | NO   |     | NULL    |                |
+| preco      | decimal(10,2) | NO   |     | NULL    |                |
++------------+---------------+------+-----+---------+----------------+
+5 rows in set (0,00 sec)
+
+mysql> show create table itens_venda;
++-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table       | Create Table                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
++-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| itens_venda | CREATE TABLE `itens_venda` (
+  `item_id` int NOT NULL AUTO_INCREMENT,
+  `venda_id` int DEFAULT NULL,
+  `produto_id` int DEFAULT NULL,
+  `quantidade` int NOT NULL,
+  `preco` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`item_id`),
+  KEY `venda_id` (`venda_id`),
+  KEY `produto_id` (`produto_id`),
+  CONSTRAINT `itens_venda_ibfk_1` FOREIGN KEY (`venda_id`) REFERENCES `vendas` (`venda_id`),
+  CONSTRAINT `itens_venda_ibfk_2` FOREIGN KEY (`produto_id`) REFERENCES `produtos` (`produto_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
++-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0,00 sec)
+
+mysql> select * from cliente;
+ERROR 1146 (42S02): Table 'loja.cliente' doesn't exist
+mysql> SELECT * FROM clientes;
++------------+-------------------+-------------------------------+----------------------------------+---------------------+
+| cliente_id | nome              | email                         | senha                            | endereco            |
++------------+-------------------+-------------------------------+----------------------------------+---------------------+
+|          1 | Ana Silva         | ana.silva1@gmail.com          | 482c811da5d5b4bc6d497ffa98491e38 | Foz do Iguaçu - PR  |
+|          2 | Bruno Pereira     | bruno.pereira2@gmail.com      | 482c811da5d5b4bc6d497ffa98491e38 | Curitiba - PR       |
+|          3 | Carlos Costa      | carlos.costa3@gmail.com       | 482c811da5d5b4bc6d497ffa98491e38 | São Paulo - SP      |
+|          4 | Daniela Lima      | daniela.lima4@gmail.com       | 482c811da5d5b4bc6d497ffa98491e38 | Rio de Janeiro - RJ |
+|          5 | Eduardo Oliveira  | eduardo.oliveira5@gmail.com   | 482c811da5d5b4bc6d497ffa98491e38 | Salvador - BA       |
+|          6 | Fernanda Martins  | fernanda.martins6@gmail.com   | 482c811da5d5b4bc6d497ffa98491e38 | Porto Alegre - RS   |
+|          7 | Guilherme Rocha   | guilherme.rocha7@gmail.com    | 482c811da5d5b4bc6d497ffa98491e38 | Brasília - DF       |
+|          8 | Helena Almeida    | helena.almeida8@gmail.com     | 482c811da5d5b4bc6d497ffa98491e38 | Manaus - AM         |
+|          9 | Igor Barbosa      | igor.barbosa9@gmail.com       | 482c811da5d5b4bc6d497ffa98491e38 | Natal - RN          |
+|         10 | Juliana Cardoso   | juliana.cardoso10@gmail.com   | 482c811da5d5b4bc6d497ffa98491e38 | Campo Grande - MS   |
+|         11 | Ana Martins       | ana.martins91@gmail.com       | 482c811da5d5b4bc6d497ffa98491e38 | Manaus - AM         |
+|         12 | Bruno Rocha       | bruno.rocha92@gmail.com       | 482c811da5d5b4bc6d497ffa98491e38 | Natal - RN          |
+|         13 | Carlos Almeida    | carlos.almeida93@gmail.com    | 482c811da5d5b4bc6d497ffa98491e38 | Campo Grande - MS   |
+|         14 | Daniela Barbosa   | daniela.barbosa94@gmail.com   | 482c811da5d5b4bc6d497ffa98491e38 | Foz do Iguaçu - PR  |
+|         15 | Eduardo Cardoso   | eduardo.cardoso95@gmail.com   | 482c811da5d5b4bc6d497ffa98491e38 | Curitiba - PR       |
+|         16 | Fernanda Silva    | fernanda.silva96@gmail.com    | 482c811da5d5b4bc6d497ffa98491e38 | São Paulo - SP      |
+|         17 | Guilherme Pereira | guilherme.pereira97@gmail.com | 482c811da5d5b4bc6d497ffa98491e38 | Rio de Janeiro - RJ |
+|         18 | Helena Costa      | helena.costa98@gmail.com      | 482c811da5d5b4bc6d497ffa98491e38 | Salvador - BA       |
+|         19 | Igor Lima         | igor.lima99@gmail.com         | 482c811da5d5b4bc6d497ffa98491e38 | Porto Alegre - RS   |
+|         20 | Juliana Oliveira  | juliana.oliveira100@gmail.com | 482c811da5d5b4bc6d497ffa98491e38 | Brasília - DF       |
+|         21 | Henrique Kim      | henrique.kim101@gmail.com     | 482c811da5d5b4bc6d497ffa98491e38 | Foz do Iguaçu - PR  |
+|         22 | Manoel Smith      | manoel.smith102@gmail.com     | 482c811da5d5b4bc6d497ffa98491e38 | Curitiba - PR       |
+|         23 | Lucas García      | lucas.garcia103@gmail.com     | 482c811da5d5b4bc6d497ffa98491e38 | São Paulo - SP      |
+|         24 | Mateus Müller     | mateus.muller104@gmail.com    | 482c811da5d5b4bc6d497ffa98491e38 | Rio de Janeiro - RJ |
+|         25 | Isaias Cardoso    | isaias.cardoso105@gmail.com   | 482c811da5d5b4bc6d497ffa98491e38 | Salvador - BA       |
+|         26 | Henrique Smith    | henrique.smith106@gmail.com   | 482c811da5d5b4bc6d497ffa98491e38 | Porto Alegre - RS   |
+|         27 | Manoel García     | manoel.garcia107@gmail.com    | 482c811da5d5b4bc6d497ffa98491e38 | Brasília - DF       |
+|         28 | Lucas Müller      | lucas.muller108@gmail.com     | 482c811da5d5b4bc6d497ffa98491e38 | Manaus - AM         |
+|         29 | Mateus Cardoso    | mateus.cardoso109@gmail.com   | 482c811da5d5b4bc6d497ffa98491e38 | Natal - RN          |
+|         30 | Isaias Kim        | isaias.kim110@gmail.com       | 482c811da5d5b4bc6d497ffa98491e38 | Campo Grande - MS   |
++------------+-------------------+-------------------------------+----------------------------------+---------------------+
+30 rows in set (0,02 sec)
+
+mysql> select * from clientes \g
++------------+-------------------+-------------------------------+----------------------------------+---------------------+
+| cliente_id | nome              | email                         | senha                            | endereco            |
++------------+-------------------+-------------------------------+----------------------------------+---------------------+
+|          1 | Ana Silva         | ana.silva1@gmail.com          | 482c811da5d5b4bc6d497ffa98491e38 | Foz do Iguaçu - PR  |
+|          2 | Bruno Pereira     | bruno.pereira2@gmail.com      | 482c811da5d5b4bc6d497ffa98491e38 | Curitiba - PR       |
+|          3 | Carlos Costa      | carlos.costa3@gmail.com       | 482c811da5d5b4bc6d497ffa98491e38 | São Paulo - SP      |
+|          4 | Daniela Lima      | daniela.lima4@gmail.com       | 482c811da5d5b4bc6d497ffa98491e38 | Rio de Janeiro - RJ |
+|          5 | Eduardo Oliveira  | eduardo.oliveira5@gmail.com   | 482c811da5d5b4bc6d497ffa98491e38 | Salvador - BA       |
+|          6 | Fernanda Martins  | fernanda.martins6@gmail.com   | 482c811da5d5b4bc6d497ffa98491e38 | Porto Alegre - RS   |
+|          7 | Guilherme Rocha   | guilherme.rocha7@gmail.com    | 482c811da5d5b4bc6d497ffa98491e38 | Brasília - DF       |
+|          8 | Helena Almeida    | helena.almeida8@gmail.com     | 482c811da5d5b4bc6d497ffa98491e38 | Manaus - AM         |
+|          9 | Igor Barbosa      | igor.barbosa9@gmail.com       | 482c811da5d5b4bc6d497ffa98491e38 | Natal - RN          |
+|         10 | Juliana Cardoso   | juliana.cardoso10@gmail.com   | 482c811da5d5b4bc6d497ffa98491e38 | Campo Grande - MS   |
+|         11 | Ana Martins       | ana.martins91@gmail.com       | 482c811da5d5b4bc6d497ffa98491e38 | Manaus - AM         |
+|         12 | Bruno Rocha       | bruno.rocha92@gmail.com       | 482c811da5d5b4bc6d497ffa98491e38 | Natal - RN          |
+|         13 | Carlos Almeida    | carlos.almeida93@gmail.com    | 482c811da5d5b4bc6d497ffa98491e38 | Campo Grande - MS   |
+|         14 | Daniela Barbosa   | daniela.barbosa94@gmail.com   | 482c811da5d5b4bc6d497ffa98491e38 | Foz do Iguaçu - PR  |
+|         15 | Eduardo Cardoso   | eduardo.cardoso95@gmail.com   | 482c811da5d5b4bc6d497ffa98491e38 | Curitiba - PR       |
+|         16 | Fernanda Silva    | fernanda.silva96@gmail.com    | 482c811da5d5b4bc6d497ffa98491e38 | São Paulo - SP      |
+|         17 | Guilherme Pereira | guilherme.pereira97@gmail.com | 482c811da5d5b4bc6d497ffa98491e38 | Rio de Janeiro - RJ |
+|         18 | Helena Costa      | helena.costa98@gmail.com      | 482c811da5d5b4bc6d497ffa98491e38 | Salvador - BA       |
+|         19 | Igor Lima         | igor.lima99@gmail.com         | 482c811da5d5b4bc6d497ffa98491e38 | Porto Alegre - RS   |
+|         20 | Juliana Oliveira  | juliana.oliveira100@gmail.com | 482c811da5d5b4bc6d497ffa98491e38 | Brasília - DF       |
+|         21 | Henrique Kim      | henrique.kim101@gmail.com     | 482c811da5d5b4bc6d497ffa98491e38 | Foz do Iguaçu - PR  |
+|         22 | Manoel Smith      | manoel.smith102@gmail.com     | 482c811da5d5b4bc6d497ffa98491e38 | Curitiba - PR       |
+|         23 | Lucas García      | lucas.garcia103@gmail.com     | 482c811da5d5b4bc6d497ffa98491e38 | São Paulo - SP      |
+|         24 | Mateus Müller     | mateus.muller104@gmail.com    | 482c811da5d5b4bc6d497ffa98491e38 | Rio de Janeiro - RJ |
+|         25 | Isaias Cardoso    | isaias.cardoso105@gmail.com   | 482c811da5d5b4bc6d497ffa98491e38 | Salvador - BA       |
+|         26 | Henrique Smith    | henrique.smith106@gmail.com   | 482c811da5d5b4bc6d497ffa98491e38 | Porto Alegre - RS   |
+|         27 | Manoel García     | manoel.garcia107@gmail.com    | 482c811da5d5b4bc6d497ffa98491e38 | Brasília - DF       |
+|         28 | Lucas Müller      | lucas.muller108@gmail.com     | 482c811da5d5b4bc6d497ffa98491e38 | Manaus - AM         |
+|         29 | Mateus Cardoso    | mateus.cardoso109@gmail.com   | 482c811da5d5b4bc6d497ffa98491e38 | Natal - RN          |
+|         30 | Isaias Kim        | isaias.kim110@gmail.com       | 482c811da5d5b4bc6d497ffa98491e38 | Campo Grande - MS   |
++------------+-------------------+-------------------------------+----------------------------------+---------------------+
+30 rows in set (0,00 sec)
+
+mysql> SELECT * FROM clienetes \G
+ERROR 1146 (42S02): Table 'loja.clienetes' doesn't exist
+mysql> SELECT * FROM clientes \G
+*************************** 1. row ***************************
+cliente_id: 1
+      nome: Ana Silva
+     email: ana.silva1@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Foz do Iguaçu - PR
+*************************** 2. row ***************************
+cliente_id: 2
+      nome: Bruno Pereira
+     email: bruno.pereira2@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Curitiba - PR
+*************************** 3. row ***************************
+cliente_id: 3
+      nome: Carlos Costa
+     email: carlos.costa3@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: São Paulo - SP
+*************************** 4. row ***************************
+cliente_id: 4
+      nome: Daniela Lima
+     email: daniela.lima4@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Rio de Janeiro - RJ
+*************************** 5. row ***************************
+cliente_id: 5
+      nome: Eduardo Oliveira
+     email: eduardo.oliveira5@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Salvador - BA
+*************************** 6. row ***************************
+cliente_id: 6
+      nome: Fernanda Martins
+     email: fernanda.martins6@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Porto Alegre - RS
+*************************** 7. row ***************************
+cliente_id: 7
+      nome: Guilherme Rocha
+     email: guilherme.rocha7@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Brasília - DF
+*************************** 8. row ***************************
+cliente_id: 8
+      nome: Helena Almeida
+     email: helena.almeida8@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Manaus - AM
+*************************** 9. row ***************************
+cliente_id: 9
+      nome: Igor Barbosa
+     email: igor.barbosa9@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Natal - RN
+*************************** 10. row ***************************
+cliente_id: 10
+      nome: Juliana Cardoso
+     email: juliana.cardoso10@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Campo Grande - MS
+*************************** 11. row ***************************
+cliente_id: 11
+      nome: Ana Martins
+     email: ana.martins91@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Manaus - AM
+*************************** 12. row ***************************
+cliente_id: 12
+      nome: Bruno Rocha
+     email: bruno.rocha92@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Natal - RN
+*************************** 13. row ***************************
+cliente_id: 13
+      nome: Carlos Almeida
+     email: carlos.almeida93@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Campo Grande - MS
+*************************** 14. row ***************************
+cliente_id: 14
+      nome: Daniela Barbosa
+     email: daniela.barbosa94@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Foz do Iguaçu - PR
+*************************** 15. row ***************************
+cliente_id: 15
+      nome: Eduardo Cardoso
+     email: eduardo.cardoso95@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Curitiba - PR
+*************************** 16. row ***************************
+cliente_id: 16
+      nome: Fernanda Silva
+     email: fernanda.silva96@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: São Paulo - SP
+*************************** 17. row ***************************
+cliente_id: 17
+      nome: Guilherme Pereira
+     email: guilherme.pereira97@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Rio de Janeiro - RJ
+*************************** 18. row ***************************
+cliente_id: 18
+      nome: Helena Costa
+     email: helena.costa98@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Salvador - BA
+*************************** 19. row ***************************
+cliente_id: 19
+      nome: Igor Lima
+     email: igor.lima99@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Porto Alegre - RS
+*************************** 20. row ***************************
+cliente_id: 20
+      nome: Juliana Oliveira
+     email: juliana.oliveira100@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Brasília - DF
+*************************** 21. row ***************************
+cliente_id: 21
+      nome: Henrique Kim
+     email: henrique.kim101@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Foz do Iguaçu - PR
+*************************** 22. row ***************************
+cliente_id: 22
+      nome: Manoel Smith
+     email: manoel.smith102@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Curitiba - PR
+*************************** 23. row ***************************
+cliente_id: 23
+      nome: Lucas García
+     email: lucas.garcia103@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: São Paulo - SP
+*************************** 24. row ***************************
+cliente_id: 24
+      nome: Mateus Müller
+     email: mateus.muller104@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Rio de Janeiro - RJ
+*************************** 25. row ***************************
+cliente_id: 25
+      nome: Isaias Cardoso
+     email: isaias.cardoso105@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Salvador - BA
+*************************** 26. row ***************************
+cliente_id: 26
+      nome: Henrique Smith
+     email: henrique.smith106@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Porto Alegre - RS
+*************************** 27. row ***************************
+cliente_id: 27
+      nome: Manoel García
+     email: manoel.garcia107@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Brasília - DF
+*************************** 28. row ***************************
+cliente_id: 28
+      nome: Lucas Müller
+     email: lucas.muller108@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Manaus - AM
+*************************** 29. row ***************************
+cliente_id: 29
+      nome: Mateus Cardoso
+     email: mateus.cardoso109@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Natal - RN
+*************************** 30. row ***************************
+cliente_id: 30
+      nome: Isaias Kim
+     email: isaias.kim110@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Campo Grande - MS
+30 rows in set (0,00 sec)
+
+mysql> SELECT * FROM clientes WHERE cliente_id= 12\G
+*************************** 1. row ***************************
+cliente_id: 12
+      nome: Bruno Rocha
+     email: bruno.rocha92@gmail.com
+     senha: 482c811da5d5b4bc6d497ffa98491e38
+  endereco: Natal - RN
+1 row in set (0,01 sec)
+
+mysql> SELECT * FROM clientes WHERE cliente_id=12;
++------------+-------------+-------------------------+----------------------------------+------------+
+| cliente_id | nome        | email                   | senha                            | endereco   |
++------------+-------------+-------------------------+----------------------------------+------------+
+|         12 | Bruno Rocha | bruno.rocha92@gmail.com | 482c811da5d5b4bc6d497ffa98491e38 | Natal - RN |
++------------+-------------+-------------------------+----------------------------------+------------+
+1 row in set (0,00 sec)
+
+mysql> SELECT * FROM clientes WHERE cliente_id = 14;
++------------+-----------------+-----------------------------+----------------------------------+---------------------+
+| cliente_id | nome            | email                       | senha                            | endereco            |
++------------+-----------------+-----------------------------+----------------------------------+---------------------+
+|         14 | Daniela Barbosa | daniela.barbosa94@gmail.com | 482c811da5d5b4bc6d497ffa98491e38 | Foz do Iguaçu - PR  |
++------------+-----------------+-----------------------------+----------------------------------+---------------------+
+1 row in set (0,00 sec)
+
+mysql> ^C
+mysql> 
+
