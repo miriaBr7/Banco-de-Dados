@@ -387,5 +387,450 @@ mysql> SELECT * FROM clientes WHERE cliente_id = 14;
 1 row in set (0,00 sec)
 
 mysql> ^C
+mysql> select 2*2;
++-----+
+| 2*2 |
++-----+
+|   4 |
++-----+
+1 row in set (0,00 sec)
+
+mysql> describe produtos;
++--------------+---------------+------+-----+---------+----------------+
+| Field        | Type          | Null | Key | Default | Extra          |
++--------------+---------------+------+-----+---------+----------------+
+| produto_id   | int           | NO   | PRI | NULL    | auto_increment |
+| nome         | varchar(255)  | NO   |     | NULL    |                |
+| descricao    | text          | YES  |     | NULL    |                |
+| preco        | decimal(10,2) | NO   |     | NULL    |                |
+| qtde_estoque | int           | NO   |     | NULL    |                |
++--------------+---------------+------+-----+---------+----------------+
+5 rows in set (0,00 sec)
+
+mysql> select nome, preco from produtos;
++-----------------------------------------+---------+
+| nome                                    | preco   |
++-----------------------------------------+---------+
+| Notebook Gamer A1                       | 4500.00 |
+| Mouse Sem Fio M2                        |   80.00 |
+| Teclado Mecânico T3                     |  250.00 |
+| Monitor LED 24" L4                      |  800.00 |
+| SSD 512GB S5                            |  500.00 |
+| Placa de Vídeo V6                       | 3200.00 |
+| Fonte 650W F7                           |  400.00 |
+| Headset Gamer H8                        |  350.00 |
+| Cooler para CPU C9                      |  150.00 |
+| Gabinete Gamer G10                      |  300.00 |
+| Router Wi-Fi R11                        |  700.00 |
+| Tablet Tela 10" T12                     | 1300.00 |
+| Pendrive USB 3.0 P13                    |  150.00 |
+| Cadeira Gamer C14                       |  850.00 |
+| Webcam Full HD W15                      |  300.00 |
+| Impressora Laser I16                    | 1000.00 |
+| Microfone USB M17                       |  500.00 |
+| Mousepad Gamer MP18                     |   70.00 |
+| Placa-mãe ATX PM19                      | 1200.00 |
+| RAM 16GB Dual Channel R20               |  600.00 |
+| HD Externo 2TB H21                      |  500.00 |
+| Teclado Sem Fio K22                     |  200.00 |
+| Mouse Gamer RGB M23                     |  180.00 |
+| Monitor Curvo 27" M24                   | 1500.00 |
+| Dock Station D25                        |  400.00 |
+| Processador Octa-Core P26               | 2200.00 |
+| Adaptador Bluetooth B27                 |   50.00 |
+| Case para Notebook N28                  |  120.00 |
+| Kit Limpeza Computador L29              |   80.00 |
+| Cabo HDMI 2.0 C30                       |   75.00 |
+| Placa de Som USB S31                    |  150.00 |
+| Cooler RGB C32                          |  120.00 |
+| Armazenamento NAS N33                   | 2500.00 |
+| Teclado RGB K34                         |  350.00 |
+| Repetidor Wi-Fi R35                     |  200.00 |
+| Carregador Wireless W36                 |  170.00 |
+| Fonte Modular 750W F37                  |  500.00 |
+| Hub USB 3.0 H38                         |  150.00 |
+| Software Antivírus A39                  |  220.00 |
+| Software Edição Gráfica E40             | 1900.00 |
+| Ventoinha RGB 120mm V41                 |  100.00 |
+| Gabinete Mini-ITX G42                   |  450.00 |
+| Controlador de Fans C43                 |  250.00 |
+| Tampa de Webcam WC44                    |   30.00 |
+| Headset Bluetooth B45                   |  700.00 |
+| Suporte para Monitor S46                |  300.00 |
+| Memória RAM 32GB R47                    | 1200.00 |
+| Adaptador DisplayPort D48               |   90.00 |
+| SSD M.2 1TB M49                         | 1000.00 |
+| Mousepad com Carregamento M50           |  180.00 |
+| Mouse Ergonômico M51                    |  120.00 |
+| Protetor de Tela T52                    |   60.00 |
+| Microfone Lapela L53                    |  180.00 |
+| Bolsa para Notebook B54                 |  220.00 |
+| Placa Mãe Micro-ATX P55                 |  850.00 |
+| Adaptador OTG A56                       |   30.00 |
+| Cabo Ethernet CAT7 C57                  |   70.00 |
+| Software Office O58                     |  900.00 |
+| Mousepad Estendido M59                  |  110.00 |
+| Router Mesh RM60                        | 1200.00 |
+| Adaptador Multiportas AM61              |  300.00 |
+| Impressora 3D I62                       | 2200.00 |
+| Joystick para PC J63                    |  350.00 |
+| Teclado Numérico T64                    |   80.00 |
+| Cartão de Memória SD 128GB C65          |  150.00 |
+| Cabo USB-C para Lightning L66           |   90.00 |
+| Caixa de Som Bluetooth S67              |  400.00 |
+| Estabilizador E68                       |  250.00 |
+| Scanner Portátil SP69                   |  350.00 |
+| Mesa Digitalizadora M70                 |  900.00 |
+| Placa de Rede WiFi PW71                 |  180.00 |
+| HD Interno 4TB HI72                     |  800.00 |
+| Roteador VPN RV73                       |  700.00 |
+| Suporte para CPU SC74                   |  150.00 |
+| Carregador Universal CU75               |  250.00 |
+| Adaptador VGA para HDMI V76             |  110.00 |
+| Software de Backup B77                  |  500.00 |
+| Licença Windows W78                     |  700.00 |
+| Kit de Ferramentas FT79                 |  150.00 |
+| Drive Óptico Externo DE80               |  180.00 |
+| Bateria Externa 20000mAh BE81           |  250.00 |
+| Estação de Solda ES82                   |  300.00 |
+| Filtro de Linha FL83                    |   90.00 |
+| Monitor LED 4K 32" M84                  | 2500.00 |
+| Fonte de Bancada FB85                   |  450.00 |
+| Mouse Bungee MB86                       |   50.00 |
+| Cam Webcam Full HD W87                  |  280.00 |
+| Adaptador de Tomada AT88                |   60.00 |
+| Software de Edição de Vídeo EV89        | 1500.00 |
+| Hub Tipo-C HC90                         |  280.00 |
+| Cooler para Notebook CN91               |  130.00 |
+| Leitor de Cartão LC92                   |   60.00 |
+| Software de Recuperação de Dados RD93   |  300.00 |
+| Monitor de Referência RM94              | 4000.00 |
+| Limpador de Teclado LT95                |   30.00 |
+| Case HDD Externo CH96                   |   90.00 |
+| Placa de Captura PC97                   |  900.00 |
+| Router Gigabit RG98                     |  600.00 |
+| Extensor de Alcance WiFi EW99           |  220.00 |
+| SSD Externo 512GB SE100                 |  600.00 |
++-----------------------------------------+---------+
+100 rows in set (0,01 sec)
+
+mysql> select nome, preco, qtde_estoque, preco* qtde_estoque from produtos;
++-----------------------------------------+---------+--------------+---------------------+
+| nome                                    | preco   | qtde_estoque | preco* qtde_estoque |
++-----------------------------------------+---------+--------------+---------------------+
+| Notebook Gamer A1                       | 4500.00 |          100 |           450000.00 |
+| Mouse Sem Fio M2                        |   80.00 |          100 |             8000.00 |
+| Teclado Mecânico T3                     |  250.00 |          100 |            25000.00 |
+| Monitor LED 24" L4                      |  800.00 |          100 |            80000.00 |
+| SSD 512GB S5                            |  500.00 |          100 |            50000.00 |
+| Placa de Vídeo V6                       | 3200.00 |          100 |           320000.00 |
+| Fonte 650W F7                           |  400.00 |          100 |            40000.00 |
+| Headset Gamer H8                        |  350.00 |          100 |            35000.00 |
+| Cooler para CPU C9                      |  150.00 |          100 |            15000.00 |
+| Gabinete Gamer G10                      |  300.00 |          100 |            30000.00 |
+| Router Wi-Fi R11                        |  700.00 |          100 |            70000.00 |
+| Tablet Tela 10" T12                     | 1300.00 |          100 |           130000.00 |
+| Pendrive USB 3.0 P13                    |  150.00 |          100 |            15000.00 |
+| Cadeira Gamer C14                       |  850.00 |          100 |            85000.00 |
+| Webcam Full HD W15                      |  300.00 |          100 |            30000.00 |
+| Impressora Laser I16                    | 1000.00 |          100 |           100000.00 |
+| Microfone USB M17                       |  500.00 |          100 |            50000.00 |
+| Mousepad Gamer MP18                     |   70.00 |          100 |             7000.00 |
+| Placa-mãe ATX PM19                      | 1200.00 |          100 |           120000.00 |
+| RAM 16GB Dual Channel R20               |  600.00 |          100 |            60000.00 |
+| HD Externo 2TB H21                      |  500.00 |          100 |            50000.00 |
+| Teclado Sem Fio K22                     |  200.00 |          100 |            20000.00 |
+| Mouse Gamer RGB M23                     |  180.00 |          100 |            18000.00 |
+| Monitor Curvo 27" M24                   | 1500.00 |          100 |           150000.00 |
+| Dock Station D25                        |  400.00 |          100 |            40000.00 |
+| Processador Octa-Core P26               | 2200.00 |          100 |           220000.00 |
+| Adaptador Bluetooth B27                 |   50.00 |          100 |             5000.00 |
+| Case para Notebook N28                  |  120.00 |          100 |            12000.00 |
+| Kit Limpeza Computador L29              |   80.00 |          100 |             8000.00 |
+| Cabo HDMI 2.0 C30                       |   75.00 |          100 |             7500.00 |
+| Placa de Som USB S31                    |  150.00 |          100 |            15000.00 |
+| Cooler RGB C32                          |  120.00 |          100 |            12000.00 |
+| Armazenamento NAS N33                   | 2500.00 |          100 |           250000.00 |
+| Teclado RGB K34                         |  350.00 |          100 |            35000.00 |
+| Repetidor Wi-Fi R35                     |  200.00 |          100 |            20000.00 |
+| Carregador Wireless W36                 |  170.00 |          100 |            17000.00 |
+| Fonte Modular 750W F37                  |  500.00 |          100 |            50000.00 |
+| Hub USB 3.0 H38                         |  150.00 |          100 |            15000.00 |
+| Software Antivírus A39                  |  220.00 |          100 |            22000.00 |
+| Software Edição Gráfica E40             | 1900.00 |          100 |           190000.00 |
+| Ventoinha RGB 120mm V41                 |  100.00 |          100 |            10000.00 |
+| Gabinete Mini-ITX G42                   |  450.00 |          100 |            45000.00 |
+| Controlador de Fans C43                 |  250.00 |          100 |            25000.00 |
+| Tampa de Webcam WC44                    |   30.00 |          100 |             3000.00 |
+| Headset Bluetooth B45                   |  700.00 |          100 |            70000.00 |
+| Suporte para Monitor S46                |  300.00 |          100 |            30000.00 |
+| Memória RAM 32GB R47                    | 1200.00 |          100 |           120000.00 |
+| Adaptador DisplayPort D48               |   90.00 |          100 |             9000.00 |
+| SSD M.2 1TB M49                         | 1000.00 |          100 |           100000.00 |
+| Mousepad com Carregamento M50           |  180.00 |          100 |            18000.00 |
+| Mouse Ergonômico M51                    |  120.00 |          100 |            12000.00 |
+| Protetor de Tela T52                    |   60.00 |          100 |             6000.00 |
+| Microfone Lapela L53                    |  180.00 |          100 |            18000.00 |
+| Bolsa para Notebook B54                 |  220.00 |          100 |            22000.00 |
+| Placa Mãe Micro-ATX P55                 |  850.00 |          100 |            85000.00 |
+| Adaptador OTG A56                       |   30.00 |          100 |             3000.00 |
+| Cabo Ethernet CAT7 C57                  |   70.00 |          100 |             7000.00 |
+| Software Office O58                     |  900.00 |          100 |            90000.00 |
+| Mousepad Estendido M59                  |  110.00 |          100 |            11000.00 |
+| Router Mesh RM60                        | 1200.00 |          100 |           120000.00 |
+| Adaptador Multiportas AM61              |  300.00 |          100 |            30000.00 |
+| Impressora 3D I62                       | 2200.00 |          100 |           220000.00 |
+| Joystick para PC J63                    |  350.00 |          100 |            35000.00 |
+| Teclado Numérico T64                    |   80.00 |          100 |             8000.00 |
+| Cartão de Memória SD 128GB C65          |  150.00 |          100 |            15000.00 |
+| Cabo USB-C para Lightning L66           |   90.00 |          100 |             9000.00 |
+| Caixa de Som Bluetooth S67              |  400.00 |          100 |            40000.00 |
+| Estabilizador E68                       |  250.00 |          100 |            25000.00 |
+| Scanner Portátil SP69                   |  350.00 |          100 |            35000.00 |
+| Mesa Digitalizadora M70                 |  900.00 |          100 |            90000.00 |
+| Placa de Rede WiFi PW71                 |  180.00 |          100 |            18000.00 |
+| HD Interno 4TB HI72                     |  800.00 |          100 |            80000.00 |
+| Roteador VPN RV73                       |  700.00 |          100 |            70000.00 |
+| Suporte para CPU SC74                   |  150.00 |          100 |            15000.00 |
+| Carregador Universal CU75               |  250.00 |          100 |            25000.00 |
+| Adaptador VGA para HDMI V76             |  110.00 |          100 |            11000.00 |
+| Software de Backup B77                  |  500.00 |          100 |            50000.00 |
+| Licença Windows W78                     |  700.00 |          100 |            70000.00 |
+| Kit de Ferramentas FT79                 |  150.00 |          100 |            15000.00 |
+| Drive Óptico Externo DE80               |  180.00 |          100 |            18000.00 |
+| Bateria Externa 20000mAh BE81           |  250.00 |          100 |            25000.00 |
+| Estação de Solda ES82                   |  300.00 |          100 |            30000.00 |
+| Filtro de Linha FL83                    |   90.00 |          100 |             9000.00 |
+| Monitor LED 4K 32" M84                  | 2500.00 |          100 |           250000.00 |
+| Fonte de Bancada FB85                   |  450.00 |          100 |            45000.00 |
+| Mouse Bungee MB86                       |   50.00 |          100 |             5000.00 |
+| Cam Webcam Full HD W87                  |  280.00 |          100 |            28000.00 |
+| Adaptador de Tomada AT88                |   60.00 |          100 |             6000.00 |
+| Software de Edição de Vídeo EV89        | 1500.00 |          100 |           150000.00 |
+| Hub Tipo-C HC90                         |  280.00 |          100 |            28000.00 |
+| Cooler para Notebook CN91               |  130.00 |          100 |            13000.00 |
+| Leitor de Cartão LC92                   |   60.00 |          100 |             6000.00 |
+| Software de Recuperação de Dados RD93   |  300.00 |          100 |            30000.00 |
+| Monitor de Referência RM94              | 4000.00 |          100 |           400000.00 |
+| Limpador de Teclado LT95                |   30.00 |          100 |             3000.00 |
+| Case HDD Externo CH96                   |   90.00 |          100 |             9000.00 |
+| Placa de Captura PC97                   |  900.00 |          100 |            90000.00 |
+| Router Gigabit RG98                     |  600.00 |          100 |            60000.00 |
+| Extensor de Alcance WiFi EW99           |  220.00 |          100 |            22000.00 |
+| SSD Externo 512GB SE100                 |  600.00 |          100 |            60000.00 |
++-----------------------------------------+---------+--------------+---------------------+
+100 rows in set (0,00 sec)
+
+mysql> select nome, preco, qtde_estoque, preco* qtde_estoque AS valor_estoque  from produtos;
++-----------------------------------------+---------+--------------+---------------+
+| nome                                    | preco   | qtde_estoque | valor_estoque |
++-----------------------------------------+---------+--------------+---------------+
+| Notebook Gamer A1                       | 4500.00 |          100 |     450000.00 |
+| Mouse Sem Fio M2                        |   80.00 |          100 |       8000.00 |
+| Teclado Mecânico T3                     |  250.00 |          100 |      25000.00 |
+| Monitor LED 24" L4                      |  800.00 |          100 |      80000.00 |
+| SSD 512GB S5                            |  500.00 |          100 |      50000.00 |
+| Placa de Vídeo V6                       | 3200.00 |          100 |     320000.00 |
+| Fonte 650W F7                           |  400.00 |          100 |      40000.00 |
+| Headset Gamer H8                        |  350.00 |          100 |      35000.00 |
+| Cooler para CPU C9                      |  150.00 |          100 |      15000.00 |
+| Gabinete Gamer G10                      |  300.00 |          100 |      30000.00 |
+| Router Wi-Fi R11                        |  700.00 |          100 |      70000.00 |
+| Tablet Tela 10" T12                     | 1300.00 |          100 |     130000.00 |
+| Pendrive USB 3.0 P13                    |  150.00 |          100 |      15000.00 |
+| Cadeira Gamer C14                       |  850.00 |          100 |      85000.00 |
+| Webcam Full HD W15                      |  300.00 |          100 |      30000.00 |
+| Impressora Laser I16                    | 1000.00 |          100 |     100000.00 |
+| Microfone USB M17                       |  500.00 |          100 |      50000.00 |
+| Mousepad Gamer MP18                     |   70.00 |          100 |       7000.00 |
+| Placa-mãe ATX PM19                      | 1200.00 |          100 |     120000.00 |
+| RAM 16GB Dual Channel R20               |  600.00 |          100 |      60000.00 |
+| HD Externo 2TB H21                      |  500.00 |          100 |      50000.00 |
+| Teclado Sem Fio K22                     |  200.00 |          100 |      20000.00 |
+| Mouse Gamer RGB M23                     |  180.00 |          100 |      18000.00 |
+| Monitor Curvo 27" M24                   | 1500.00 |          100 |     150000.00 |
+| Dock Station D25                        |  400.00 |          100 |      40000.00 |
+| Processador Octa-Core P26               | 2200.00 |          100 |     220000.00 |
+| Adaptador Bluetooth B27                 |   50.00 |          100 |       5000.00 |
+| Case para Notebook N28                  |  120.00 |          100 |      12000.00 |
+| Kit Limpeza Computador L29              |   80.00 |          100 |       8000.00 |
+| Cabo HDMI 2.0 C30                       |   75.00 |          100 |       7500.00 |
+| Placa de Som USB S31                    |  150.00 |          100 |      15000.00 |
+| Cooler RGB C32                          |  120.00 |          100 |      12000.00 |
+| Armazenamento NAS N33                   | 2500.00 |          100 |     250000.00 |
+| Teclado RGB K34                         |  350.00 |          100 |      35000.00 |
+| Repetidor Wi-Fi R35                     |  200.00 |          100 |      20000.00 |
+| Carregador Wireless W36                 |  170.00 |          100 |      17000.00 |
+| Fonte Modular 750W F37                  |  500.00 |          100 |      50000.00 |
+| Hub USB 3.0 H38                         |  150.00 |          100 |      15000.00 |
+| Software Antivírus A39                  |  220.00 |          100 |      22000.00 |
+| Software Edição Gráfica E40             | 1900.00 |          100 |     190000.00 |
+| Ventoinha RGB 120mm V41                 |  100.00 |          100 |      10000.00 |
+| Gabinete Mini-ITX G42                   |  450.00 |          100 |      45000.00 |
+| Controlador de Fans C43                 |  250.00 |          100 |      25000.00 |
+| Tampa de Webcam WC44                    |   30.00 |          100 |       3000.00 |
+| Headset Bluetooth B45                   |  700.00 |          100 |      70000.00 |
+| Suporte para Monitor S46                |  300.00 |          100 |      30000.00 |
+| Memória RAM 32GB R47                    | 1200.00 |          100 |     120000.00 |
+| Adaptador DisplayPort D48               |   90.00 |          100 |       9000.00 |
+| SSD M.2 1TB M49                         | 1000.00 |          100 |     100000.00 |
+| Mousepad com Carregamento M50           |  180.00 |          100 |      18000.00 |
+| Mouse Ergonômico M51                    |  120.00 |          100 |      12000.00 |
+| Protetor de Tela T52                    |   60.00 |          100 |       6000.00 |
+| Microfone Lapela L53                    |  180.00 |          100 |      18000.00 |
+| Bolsa para Notebook B54                 |  220.00 |          100 |      22000.00 |
+| Placa Mãe Micro-ATX P55                 |  850.00 |          100 |      85000.00 |
+| Adaptador OTG A56                       |   30.00 |          100 |       3000.00 |
+| Cabo Ethernet CAT7 C57                  |   70.00 |          100 |       7000.00 |
+| Software Office O58                     |  900.00 |          100 |      90000.00 |
+| Mousepad Estendido M59                  |  110.00 |          100 |      11000.00 |
+| Router Mesh RM60                        | 1200.00 |          100 |     120000.00 |
+| Adaptador Multiportas AM61              |  300.00 |          100 |      30000.00 |
+| Impressora 3D I62                       | 2200.00 |          100 |     220000.00 |
+| Joystick para PC J63                    |  350.00 |          100 |      35000.00 |
+| Teclado Numérico T64                    |   80.00 |          100 |       8000.00 |
+| Cartão de Memória SD 128GB C65          |  150.00 |          100 |      15000.00 |
+| Cabo USB-C para Lightning L66           |   90.00 |          100 |       9000.00 |
+| Caixa de Som Bluetooth S67              |  400.00 |          100 |      40000.00 |
+| Estabilizador E68                       |  250.00 |          100 |      25000.00 |
+| Scanner Portátil SP69                   |  350.00 |          100 |      35000.00 |
+| Mesa Digitalizadora M70                 |  900.00 |          100 |      90000.00 |
+| Placa de Rede WiFi PW71                 |  180.00 |          100 |      18000.00 |
+| HD Interno 4TB HI72                     |  800.00 |          100 |      80000.00 |
+| Roteador VPN RV73                       |  700.00 |          100 |      70000.00 |
+| Suporte para CPU SC74                   |  150.00 |          100 |      15000.00 |
+| Carregador Universal CU75               |  250.00 |          100 |      25000.00 |
+| Adaptador VGA para HDMI V76             |  110.00 |          100 |      11000.00 |
+| Software de Backup B77                  |  500.00 |          100 |      50000.00 |
+| Licença Windows W78                     |  700.00 |          100 |      70000.00 |
+| Kit de Ferramentas FT79                 |  150.00 |          100 |      15000.00 |
+| Drive Óptico Externo DE80               |  180.00 |          100 |      18000.00 |
+| Bateria Externa 20000mAh BE81           |  250.00 |          100 |      25000.00 |
+| Estação de Solda ES82                   |  300.00 |          100 |      30000.00 |
+| Filtro de Linha FL83                    |   90.00 |          100 |       9000.00 |
+| Monitor LED 4K 32" M84                  | 2500.00 |          100 |     250000.00 |
+| Fonte de Bancada FB85                   |  450.00 |          100 |      45000.00 |
+| Mouse Bungee MB86                       |   50.00 |          100 |       5000.00 |
+| Cam Webcam Full HD W87                  |  280.00 |          100 |      28000.00 |
+| Adaptador de Tomada AT88                |   60.00 |          100 |       6000.00 |
+| Software de Edição de Vídeo EV89        | 1500.00 |          100 |     150000.00 |
+| Hub Tipo-C HC90                         |  280.00 |          100 |      28000.00 |
+| Cooler para Notebook CN91               |  130.00 |          100 |      13000.00 |
+| Leitor de Cartão LC92                   |   60.00 |          100 |       6000.00 |
+| Software de Recuperação de Dados RD93   |  300.00 |          100 |      30000.00 |
+| Monitor de Referência RM94              | 4000.00 |          100 |     400000.00 |
+| Limpador de Teclado LT95                |   30.00 |          100 |       3000.00 |
+| Case HDD Externo CH96                   |   90.00 |          100 |       9000.00 |
+| Placa de Captura PC97                   |  900.00 |          100 |      90000.00 |
+| Router Gigabit RG98                     |  600.00 |          100 |      60000.00 |
+| Extensor de Alcance WiFi EW99           |  220.00 |          100 |      22000.00 |
+| SSD Externo 512GB SE100                 |  600.00 |          100 |      60000.00 |
++-----------------------------------------+---------+--------------+---------------+
+100 rows in set (0,00 sec)
+
+mysql> select nome, preco, qtde_estoque, preco* qtde_estoque AS valor_estoque  from produtos LIMIT 5;
++----------------------+---------+--------------+---------------+
+| nome                 | preco   | qtde_estoque | valor_estoque |
++----------------------+---------+--------------+---------------+
+| Notebook Gamer A1    | 4500.00 |          100 |     450000.00 |
+| Mouse Sem Fio M2     |   80.00 |          100 |       8000.00 |
+| Teclado Mecânico T3  |  250.00 |          100 |      25000.00 |
+| Monitor LED 24" L4   |  800.00 |          100 |      80000.00 |
+| SSD 512GB S5         |  500.00 |          100 |      50000.00 |
++----------------------+---------+--------------+---------------+
+5 rows in set (0,00 sec)
+
+mysql> select nome, preco, qtde_estoque, preco* qtde_estoque AS valor_estoque  from produtos WHERE preco <= 999 LIMIT 5;
++----------------------+--------+--------------+---------------+
+| nome                 | preco  | qtde_estoque | valor_estoque |
++----------------------+--------+--------------+---------------+
+| Mouse Sem Fio M2     |  80.00 |          100 |       8000.00 |
+| Teclado Mecânico T3  | 250.00 |          100 |      25000.00 |
+| Monitor LED 24" L4   | 800.00 |          100 |      80000.00 |
+| SSD 512GB S5         | 500.00 |          100 |      50000.00 |
+| Fonte 650W F7        | 400.00 |          100 |      40000.00 |
++----------------------+--------+--------------+---------------+
+5 rows in set (0,00 sec)
+
+mysql> select nome, preco, qtde_estoque, preco* qtde_estoque AS valor_estoque  from produtos WHERE produto_id IN (2, 7, 9, 10, 11) LIMIT 5;
++--------------------+--------+--------------+---------------+
+| nome               | preco  | qtde_estoque | valor_estoque |
++--------------------+--------+--------------+---------------+
+| Mouse Sem Fio M2   |  80.00 |          100 |       8000.00 |
+| Fonte 650W F7      | 400.00 |          100 |      40000.00 |
+| Cooler para CPU C9 | 150.00 |          100 |      15000.00 |
+| Gabinete Gamer G10 | 300.00 |          100 |      30000.00 |
+| Router Wi-Fi R11   | 700.00 |          100 |      70000.00 |
++--------------------+--------+--------------+---------------+
+5 rows in set (0,00 sec)
+
+mysql> select nome, preco, qtde_estoque, preco* qtde_estoque AS valor_estoque  from produtos WHERE produto_id IN (2, 7, 9, 10, 11) ORDER BY nome;
++--------------------+--------+--------------+---------------+
+| nome               | preco  | qtde_estoque | valor_estoque |
++--------------------+--------+--------------+---------------+
+| Cooler para CPU C9 | 150.00 |          100 |      15000.00 |
+| Fonte 650W F7      | 400.00 |          100 |      40000.00 |
+| Gabinete Gamer G10 | 300.00 |          100 |      30000.00 |
+| Mouse Sem Fio M2   |  80.00 |          100 |       8000.00 |
+| Router Wi-Fi R11   | 700.00 |          100 |      70000.00 |
++--------------------+--------+--------------+---------------+
+5 rows in set (0,00 sec)
+
+mysql> select nome, preco, qtde_estoque, preco* qtde_estoque AS valor_estoque  from produtos WHERE produto_id IN (2, 7, 9, 10, 11) ORDER BY preco;
++--------------------+--------+--------------+---------------+
+| nome               | preco  | qtde_estoque | valor_estoque |
++--------------------+--------+--------------+---------------+
+| Mouse Sem Fio M2   |  80.00 |          100 |       8000.00 |
+| Cooler para CPU C9 | 150.00 |          100 |      15000.00 |
+| Gabinete Gamer G10 | 300.00 |          100 |      30000.00 |
+| Fonte 650W F7      | 400.00 |          100 |      40000.00 |
+| Router Wi-Fi R11   | 700.00 |          100 |      70000.00 |
++--------------------+--------+--------------+---------------+
+5 rows in set (0,00 sec)
+
+mysql> select nome, preco, qtde_estoque, preco* qtde_estoque AS valor_estoque  from produtos WHERE produto_id IN (2, 7, 9, 10, 11) ORDER BY preco ASC;
++--------------------+--------+--------------+---------------+
+| nome               | preco  | qtde_estoque | valor_estoque |
++--------------------+--------+--------------+---------------+
+| Mouse Sem Fio M2   |  80.00 |          100 |       8000.00 |
+| Cooler para CPU C9 | 150.00 |          100 |      15000.00 |
+| Gabinete Gamer G10 | 300.00 |          100 |      30000.00 |
+| Fonte 650W F7      | 400.00 |          100 |      40000.00 |
+| Router Wi-Fi R11   | 700.00 |          100 |      70000.00 |
++--------------------+--------+--------------+---------------+
+5 rows in set (0,00 sec)
+
+mysql> select nome, preco, qtde_estoque, preco* qtde_estoque AS valor_estoque  from produtos WHERE produto_id IN (2, 7, 9, 10, 11) ORDER BY preco DESC;
++--------------------+--------+--------------+---------------+
+| nome               | preco  | qtde_estoque | valor_estoque |
++--------------------+--------+--------------+---------------+
+| Router Wi-Fi R11   | 700.00 |          100 |      70000.00 |
+| Fonte 650W F7      | 400.00 |          100 |      40000.00 |
+| Gabinete Gamer G10 | 300.00 |          100 |      30000.00 |
+| Cooler para CPU C9 | 150.00 |          100 |      15000.00 |
+| Mouse Sem Fio M2   |  80.00 |          100 |       8000.00 |
++--------------------+--------+--------------+---------------+
+5 rows in set (0,00 sec)
+
+mysql> SELECT SUM (preco*qtde_estoque) FROM produtos;
+ERROR 1630 (42000): FUNCTION loja.SUM does not exist. Check the 'Function Name Parsing and Resolution' section in the Reference Manual
+mysql> SELECT SUM(preco*qtde_estoque) FROM produtos;
++-------------------------+
+| SUM(preco*qtde_estoque) |
++-------------------------+
+|              5828500.00 |
++-------------------------+
+1 row in set (0,01 sec)
+
+mysql> SELECT AVG(preco), MIN(preco), MAX(preco), FROM produtos;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM produtos' at line 1
+mysql> SELECT AVG(preco), MIN(preco), MAX(preco) FROM produtos;
++------------+------------+------------+
+| AVG(preco) | MIN(preco) | MAX(preco) |
++------------+------------+------------+
+| 582.850000 |      30.00 |    4500.00 |
++------------+------------+------------+
+1 row in set (0,00 sec)
+
 mysql> 
 
