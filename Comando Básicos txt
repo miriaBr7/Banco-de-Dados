@@ -1,0 +1,26 @@
+Comandos Básicos
+1. Acessar o MySQL vi Bash:
+   mysql -u root -p
+MySQL Client
+2. Mostrar Bancos de Dados:
+   SHOW DATABASES;
+   Lista todos os bancos de dados no servidor MySQL. 
+3. Selecionar um Banco de Dados:
+   USE [nome_banco_de_dados];
+   [nome_banco_de_dados]: nome do banco de dados com o qual você deseja trabalhar. 
+4. Mostrar Tabelas:
+   SHOW TABLES;
+   Mostra as tabelas no banco de dados atualmente selecionado. 
+5. Descrever a Estrutura de uma Tabela:
+   DESCRIBE [nome_tabela];
+ [nome_tabela]: nome da tabela para a qual você deseja ver a estrutura. 
+6. Executar uma Consulta SQL:
+   SELECT * FROM [nome_tabela];
+   [nome_tabela]: nome da tabela.  Este é um exemplo básico para selecionar todos os dados de uma tabela. 
+7. Mostra os resultados de um Consulta SQL na vertical:
+SELECT * FROM [nome_tabela] \G
+8. Sair do MySQL:
+   EXIT;
+   QUIT;
+   \q
+   Ambos os comandos saem do cliente MySQL. 
