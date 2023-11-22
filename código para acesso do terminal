@@ -1,5 +1,5 @@
-lab@lab:~$ mysql -uroot -p
-Enter password: 
+lab@lab:~$ ((((((((((((((((mysql -uroot -p))))))))))))))))))))))
+Enter password: ((bancodedados))
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 13
 Server version: 8.0.34-0ubuntu0.22.04.1 (Ubuntu)
@@ -12,7 +12,7 @@ owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-mysql> show databases;
+mysql> (((((show databases;)))))))
 +-----------------------+
 | Database              |
 +-----------------------+
